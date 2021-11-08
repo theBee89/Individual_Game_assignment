@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ambulance
+  - EnemyCar_1
   layers:
   - Default
   - TransparentFX

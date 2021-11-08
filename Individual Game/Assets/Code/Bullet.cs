@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
+    public GameObject explosion;
     public float bulletSpeed = 10f;
     public Rigidbody2D bullet;
 
@@ -19,4 +20,18 @@ public class Bullet : MonoBehaviour
     {
         
     }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "EnemyCar_1")
+        {
+            Debug.Log("Collision Detected");
+            GameObject e = Instantiate(explosion);
+            e.transform.position = collision.transform.position;
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        
+    }
+
 }
