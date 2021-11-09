@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ambulance
   - EnemyCar_1
+  - Bullet
   layers:
   - Default
   - TransparentFX
