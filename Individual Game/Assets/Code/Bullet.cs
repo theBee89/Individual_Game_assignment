@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        bullet.velocity = transform.right * bulletSpeed;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)

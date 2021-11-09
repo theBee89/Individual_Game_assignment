@@ -7,8 +7,10 @@ public class Ambulance_control : MonoBehaviour
 
     public GameObject explosion;
 
+    public GameObject explosion2;
+
     private int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     public HealthBar healthBar;
 
@@ -30,18 +32,20 @@ public class Ambulance_control : MonoBehaviour
     }
 
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= 20;
+        currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+       if(collision.gameObject.tag == "Bomb")
         {
             TakeDamage(20);
+            Instantiate(explosion2);
+            explosion2.transform.position = collision.gameObject.transform.position;
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
     }
 }

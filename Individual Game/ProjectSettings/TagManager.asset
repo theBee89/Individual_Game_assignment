@@ -7,6 +7,8 @@ TagManager:
   - Ambulance
   - EnemyCar_1
   - Bullet
+  - Road1
+  - Bomb
   layers:
   - Default
   - TransparentFX

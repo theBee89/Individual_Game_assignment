@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 847550572896870799}
   - component: {fileID: 847550572896870797}
   - component: {fileID: 847550572896870794}
-  - component: {fileID: 1059429385}
   - component: {fileID: 313116203063494766}
   - component: {fileID: 1059429387}
+  - component: {fileID: 1016126174}
   m_Layer: 0
   m_Name: Player_car1
   m_TagString: Untagged
@@ -135,6 +135,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   HealthBar: {fileID: 847550571229594978}
+  car: {fileID: 1059429387}
   carSpeed: 6
   isCollidingTop: 0
   isCollidingSide: 0
@@ -235,22 +236,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1059429385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847550572896870798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0431d1a6f513aa4fbb54b4ac458b9e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 1169075692}
-  bulletPrefab: {fileID: 1207195448464568240, guid: a3e55733a623b79438f06c765f33379d, type: 3}
-  canShoot: 1
-  timer: 0
 --- !u!61 &313116203063494766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -298,6 +283,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1016126174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847550572896870798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0431d1a6f513aa4fbb54b4ac458b9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1169075692}
+  bulletPrefab: {fileID: 1207195448464568240, guid: a3e55733a623b79438f06c765f33379d, type: 3}
+  canShoot: 1
+  timer: 0
 --- !u!1001 &2453943377441616193
 PrefabInstance:
   m_ObjectHideFlags: 0

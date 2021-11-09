@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform weapon;
+    
     public GameObject bulletPrefab;
     public bool canShoot = true;
 
@@ -35,6 +36,6 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
         timer = 0f;
-        Instantiate(bulletPrefab, weapon.position, weapon.rotation);
+       Instantiate(bulletPrefab, weapon.position, Quaternion.Euler(0,0,90));
     }
 }
