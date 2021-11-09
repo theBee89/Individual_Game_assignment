@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player_control : MonoBehaviour
 {
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar HealthBar;
+
     public float carSpeed;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
@@ -19,6 +24,9 @@ public class Player_control : MonoBehaviour
         position = transform.position;
         audio = GetComponent<AudioSource>();
         audio.loop = true;
+
+        currentHealth = maxHealth;
+        HealthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -31,6 +39,18 @@ public class Player_control : MonoBehaviour
         position.y = Mathf.Clamp(position.y, -maxPosY, maxPosY);
 
         transform.position = position;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+
+            HealthBar.SetHealth(currentHealth);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
     }
 
     
