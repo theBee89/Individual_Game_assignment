@@ -6,9 +6,16 @@ public class Player_control : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int isFire = 0;
+    public bool callFire = false;
+
+    public int lives = 3;
 
     public HealthBar HealthBar;
     public Rigidbody2D car;
+    public GameObject fireLight;
+    public Transform damage;
+    public Rigidbody2D fireRb;
 
     public GameObject ambulance;
 
@@ -17,6 +24,7 @@ public class Player_control : MonoBehaviour
     public float carSpeed = 6f;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
+    public Vector2 playerPos;
 
     public bool isCollidingTop = false;
     public bool isCollidingSide = false;
@@ -27,7 +35,8 @@ public class Player_control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ambulance_Control = GameObject.Find("Ambulance").GetComponent<Ambulance_control>();
+        //ambulance_Control = GameObject.FindGameObjectWithTag("Ambulance").GetComponent<Ambulance_control>();
+        //fire.SetActive(false);
         position = transform.position;
         audio = GetComponent<AudioSource>();
         audio.loop = true;
@@ -39,7 +48,34 @@ public class Player_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerPos = fireLight.transform.position;
+        fireRb.transform.position = damage.transform.position;
+        if(currentHealth < 50)
+        {
+            isFire += 1;
+        }
+        else
+        {
+            isFire = 0;
+        }
+        if(isFire == 1)
+        {
+            
+            GameObject e = Instantiate(fireLight, damage.position, damage.rotation);
+            e.transform.position = damage.transform.position;
+           
+
+        }
+        if(fireLight != null)
+        {
+            fireLight.transform.position = damage.transform.position;
+        }
         
+         if(lives <= 0)
+        {
+            Debug.Log("Game Over");
+        }
+         
 
         position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
         position.y += Input.GetAxis("Vertical") * carSpeed * Time.deltaTime;
@@ -53,11 +89,15 @@ public class Player_control : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
-            //ambulance_Control = GetComponent<Ambulance_control>();
-            ambulance_Control.TakeDamage(20);
+            
 
             HealthBar.SetHealth(currentHealth);
         }
+    }
+
+    private void makeFire()
+    {
+        
     }
 
     private void FixedUpdate()

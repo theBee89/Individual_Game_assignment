@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public Transform weapon;
     
     public GameObject bulletPrefab;
+    public GameObject bomb;
     public bool canShoot = true;
 
     public float timer;
@@ -36,6 +37,8 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
         timer = 0f;
-       Instantiate(bulletPrefab, weapon.position, Quaternion.Euler(0,0,90));
+        Instantiate(bulletPrefab, weapon.position, Quaternion.Euler(0,0,90));
+        Instantiate(bomb, weapon.position, Quaternion.Euler(0, 0, 90));
+
     }
 }

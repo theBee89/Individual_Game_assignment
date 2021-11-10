@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     public GameObject explosion;
+    public GameObject explosion2;
     public float bulletSpeed = 10f;
     public Rigidbody2D bullet;
 
@@ -35,6 +36,7 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        
 
         
         
