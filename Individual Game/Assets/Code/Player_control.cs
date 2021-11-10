@@ -14,6 +14,7 @@ public class Player_control : MonoBehaviour
     public HealthBar HealthBar;
     public Rigidbody2D car;
     public GameObject fireLight;
+    public GameObject e;
     public Transform damage;
     public Rigidbody2D fireRb;
 
@@ -48,30 +49,29 @@ public class Player_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPos = fireLight.transform.position;
-        fireRb.transform.position = damage.transform.position;
-        if(currentHealth < 50)
+        if(currentHealth >= 100)
         {
-            isFire += 1;
+            currentHealth = 100;
+        }
+        
+
+        if (currentHealth < 50)
+        {
+            if(isFire == 0)
+            {
+                e = Instantiate(fireLight, damage.position, damage.rotation);
+                
+                isFire = 1;
+            }
+            e.transform.position = damage.transform.position;
         }
         else
         {
+            Destroy(e); // Fire goes out when health is restored
             isFire = 0;
         }
-        if(isFire == 1)
-        {
-            
-            GameObject e = Instantiate(fireLight, damage.position, damage.rotation);
-            e.transform.position = damage.transform.position;
-           
 
-        }
-        if(fireLight != null)
-        {
-            fireLight.transform.position = damage.transform.position;
-        }
-        
-         if(lives <= 0)
+        if (lives <= 0)
         {
             Debug.Log("Game Over");
         }
@@ -90,6 +90,13 @@ public class Player_control : MonoBehaviour
         {
             TakeDamage(20);
             
+
+            HealthBar.SetHealth(currentHealth);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            currentHealth += 20;
+
 
             HealthBar.SetHealth(currentHealth);
         }
