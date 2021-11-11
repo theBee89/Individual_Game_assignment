@@ -17,7 +17,12 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        if(transform.position.y < -11)
+        {
+            Destroy(gameObject);
+        }
+        bomb.velocity = new Vector2(0, -bombSpeed);
+
     }
     
 

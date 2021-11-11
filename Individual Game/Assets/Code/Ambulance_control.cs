@@ -6,11 +6,17 @@ public class Ambulance_control : MonoBehaviour
 {
 
     public GameObject explosion;
+    public GameObject e;
 
     Player_control player_Control;
     public GameObject explosion2;
 
+    public GameObject fire;
+    
+    public Transform ambulance;
+
     public int lives = 3;
+    public bool isFire = false;
 
     private int maxHealth = 100;
     public int currentHealth;
@@ -32,6 +38,7 @@ public class Ambulance_control : MonoBehaviour
             GameObject e = Instantiate(explosion);
             e.transform.position = transform.position;
             Destroy(gameObject);
+            
             player_Control.lives -= 1;
         }
         
@@ -43,6 +50,18 @@ public class Ambulance_control : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 50 && isFire == false)
+        {
+          e = Instantiate(fire, ambulance.position, ambulance.rotation);
+          e.transform.position = ambulance.transform.position;
+            isFire = true;
+           
+        }
+        if (currentHealth <= 20)
+        {
+            Destroy(e);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

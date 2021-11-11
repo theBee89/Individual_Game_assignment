@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!50 &97762372 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3698906045098757058, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
-  m_PrefabInstance: {fileID: 1549380046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &195070679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6830113
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -179,10 +174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2103729175421628364, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
-      propertyPath: enemyCar
-      value: 
-      objectReference: {fileID: 97762372}
     - target: {fileID: 6580979294786020105, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_Name
       value: EnemyCar_1 (1)
@@ -242,7 +233,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.87205
+  orthographic size: 10.4721365
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421,11 +412,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1016126172 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1059429387, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-  m_PrefabInstance: {fileID: 847550572927607758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1225599974
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.05
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -681,10 +667,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2103729175421628364, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
-      propertyPath: enemyCar
-      value: 
-      objectReference: {fileID: 1016126172}
     - target: {fileID: 6580979294786020105, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_Name
       value: EnemyCar_1
@@ -834,7 +816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9433233
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 663334292211658194, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -904,11 +886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 847550572896870796, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 847550572896870796, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 847550572896870796, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -950,6 +932,10 @@ PrefabInstance:
       propertyPath: damaged
       value: 
       objectReference: {fileID: 2037466718}
+    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 7881874400628981804, guid: 98ceccec831d1094bbded163b87c80a6, type: 3}
     - target: {fileID: 847550572896870798, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_Name
       value: Player_car1

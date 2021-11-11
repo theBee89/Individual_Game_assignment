@@ -140,10 +140,13 @@ MonoBehaviour:
   HealthBar: {fileID: 847550571229594978}
   car: {fileID: 1059429387}
   fireLight: {fileID: 8626870594074001281, guid: 1f41eec4750476648ac7cf9e7ebd9785, type: 3}
-  damage: {fileID: 1169075692}
+  e: {fileID: 0}
+  explosion: {fileID: 0}
+  damaged: {fileID: 0}
   fireRb: {fileID: 6554759649572601640, guid: 1f41eec4750476648ac7cf9e7ebd9785, type: 3}
   ambulance: {fileID: 1101022150916176504, guid: 4cb90dff8af37dd46a66f70840ee9078, type: 3}
   carSpeed: 6
+  playerPos: {x: 0, y: 0}
   isCollidingTop: 0
   isCollidingSide: 0
   audio: {fileID: 847550572896870794}
@@ -304,7 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 1169075692}
   bulletPrefab: {fileID: 1207195448464568240, guid: a3e55733a623b79438f06c765f33379d, type: 3}
-  bomb: {fileID: 1564424030859905193, guid: 83291d805cdd006428ed86dc560f2bae, type: 3}
   canShoot: 1
   timer: 0
 --- !u!1001 &2453943377441616193

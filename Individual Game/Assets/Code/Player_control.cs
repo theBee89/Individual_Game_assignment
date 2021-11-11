@@ -15,6 +15,8 @@ public class Player_control : MonoBehaviour
     public Rigidbody2D car;
     public GameObject fireLight;
     public GameObject e;
+    public GameObject explosion;
+
     public Transform damaged;
     public Rigidbody2D fireRb;
 
@@ -102,17 +104,9 @@ public class Player_control : MonoBehaviour
         }
     }
 
-    private void makeFire()
-    {
-        //Destroy(e); // Fire goes out when health is restored
-        //isFire = 0;
-    }
+   
 
-    private void FixedUpdate()
-    {
-        
-
-    }
+   
 
     void gainHealth(int heal)
     {
@@ -134,38 +128,50 @@ public class Player_control : MonoBehaviour
             e.transform.position = damaged.transform.position;
             isFire = 1;
         }
+        if (currentHealth <= 10)
+        {
+            Destroy(e);
+        }
     }
 
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        //if (collision.gameObject.tag == "Ambulance" && position.y > collision.gameObject.transform.position.y)
-       // {
-          //  isCollidingSide = false;
-            //position.y += 1f;
+        if (collision.gameObject.tag == "Bomb")
+        {
+            TakeDamage(20);
 
-            //transform.position = position;
+            GameObject e = Instantiate(explosion);
+            e.transform.position = transform.position;
+            Destroy(collision.gameObject);
+        }
+
+        //if (collision.gameObject.tag == "Ambulance" && position.y > collision.gameObject.transform.position.y)
+        // {
+        //  isCollidingSide = false;
+        //position.y += 1f;
+
+        //transform.position = position;
         //}
 
         //if (collision.gameObject.tag == "Ambulance" && position.x > collision.gameObject.transform.position.x && position.y == collision.gameObject.transform.position.y)
         //{
-          //  position.x += 0.5f;
-            //transform.position = position;
+        //  position.x += 0.5f;
+        //transform.position = position;
         //}
         //if (collision.gameObject.tag == "Ambulance" && position.x < collision.gameObject.transform.position.x && position.y == collision.gameObject.transform.position.y)
         //{
-          //  position.x -= 0.5f;
-           // transform.position = position;
+        //  position.x -= 0.5f;
+        // transform.position = position;
         //}
 
         //if(collision.gameObject.tag == "Road1")
         //{
-          //  Debug.Log("Wall Hit");
-            //position.y += Input.GetAxis("Vertical") * 0f * Time.deltaTime;
-            //carSpeed = 0;
+        //  Debug.Log("Wall Hit");
+        //position.y += Input.GetAxis("Vertical") * 0f * Time.deltaTime;
+        //carSpeed = 0;
 
-            //gameObject.transform.Translate(0f, 0f, 0f);
+        //gameObject.transform.Translate(0f, 0f, 0f);
         //}
     }
 }

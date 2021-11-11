@@ -147,7 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 7881874400628981804, guid: 98ceccec831d1094bbded163b87c80a6, type: 3}
+  e: {fileID: 8626870594074001281, guid: 1f41eec4750476648ac7cf9e7ebd9785, type: 3}
   explosion2: {fileID: 9118572820364899882, guid: 40318e5a0a9547c4aaace89d15cff63d, type: 3}
+  fire: {fileID: 8626870594074001281, guid: 1f41eec4750476648ac7cf9e7ebd9785, type: 3}
+  ambulance: {fileID: 908137529000811039}
   lives: 3
   currentHealth: 0
   healthBar: {fileID: 3361811915295659522}
