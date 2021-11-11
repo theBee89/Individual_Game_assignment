@@ -15,7 +15,7 @@ public class Player_control : MonoBehaviour
     public Rigidbody2D car;
     public GameObject fireLight;
     public GameObject e;
-    public Transform damage;
+    public Transform damaged;
     public Rigidbody2D fireRb;
 
     public GameObject ambulance;
@@ -53,27 +53,27 @@ public class Player_control : MonoBehaviour
         {
             currentHealth = 100;
         }
+        if(lives == 0)
+        {
+            Destroy(gameObject);
+        }
         
 
-        if (currentHealth < 50)
+        
+        if(e != null)
         {
-            if(isFire == 0)
-            {
-                e = Instantiate(fireLight, damage.position, damage.rotation);
-                
-                isFire = 1;
-            }
-            e.transform.position = damage.transform.position;
-        }
-        else
-        {
-            Destroy(e); // Fire goes out when health is restored
-            isFire = 0;
-        }
+            e.transform.position = damaged.transform.position;
+        }  
+        
+        
 
         if (lives <= 0)
         {
             Debug.Log("Game Over");
+        }
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
          
 
@@ -95,7 +95,7 @@ public class Player_control : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            currentHealth += 20;
+            gainHealth(20);
 
 
             HealthBar.SetHealth(currentHealth);
@@ -104,7 +104,8 @@ public class Player_control : MonoBehaviour
 
     private void makeFire()
     {
-        
+        //Destroy(e); // Fire goes out when health is restored
+        //isFire = 0;
     }
 
     private void FixedUpdate()
@@ -112,15 +113,33 @@ public class Player_control : MonoBehaviour
         
 
     }
+
+    void gainHealth(int heal)
+    {
+        currentHealth += heal;
+        HealthBar.SetHealth(currentHealth);
+        if(currentHealth >= 50)
+        {
+            Destroy(e);
+            isFire = 0;
+        } 
+    }
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        HealthBar.SetHealth(currentHealth);
+        if(currentHealth <= 50 && isFire == 0)
+        {
+            e = Instantiate(fireLight, damaged.position, damaged.rotation);
+            e.transform.position = damaged.transform.position;
+            isFire = 1;
+        }
     }
 
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        
         //if (collision.gameObject.tag == "Ambulance" && position.y > collision.gameObject.transform.position.y)
        // {
           //  isCollidingSide = false;

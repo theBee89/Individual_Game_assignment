@@ -22,6 +22,7 @@ public class Ambulance_control : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        player_Control = GameObject.Find("Player_car1").GetComponent<Player_control>();
     }
 
     private void Update()
@@ -34,7 +35,7 @@ public class Ambulance_control : MonoBehaviour
             player_Control.lives -= 1;
         }
         
-        player_Control = GameObject.Find("Player_car1").GetComponent<Player_control>();
+        
     }
 
 
