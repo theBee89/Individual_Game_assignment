@@ -8,7 +8,7 @@ public class EnemyCar_1 : MonoBehaviour
     public Rigidbody2D enemyCar;
     public Transform firePoint;
 
-    private float maxTime = 15f;
+    private float maxTime = 12f;
     private float minTime = 2f;
 
     private float time;

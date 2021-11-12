@@ -148,7 +148,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.11777997, y: 0.023556232}
@@ -179,5 +179,3 @@ MonoBehaviour:
   bomb: {fileID: 1564424030859905193, guid: 83291d805cdd006428ed86dc560f2bae, type: 3}
   enemyCar: {fileID: 3698906045098757058}
   firePoint: {fileID: 8901655142911852679}
-  maxTime: 5
-  minTime: 2

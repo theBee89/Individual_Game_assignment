@@ -28,24 +28,26 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "EnemyCar_1")
-        {
-            Debug.Log("Collision Detected");
-            GameObject e = Instantiate(explosion);
-            e.transform.position = collision.transform.position;
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
+       
 
         if(collision.gameObject.tag == "Bomb")
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-        
+            
+    }
 
-        
-        
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyCar_1")
+        {
+            Debug.Log("Collision Detected");
+            GameObject e = Instantiate(explosion);
+            e.transform.position = collision.transform.position;
+            //Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 
 }

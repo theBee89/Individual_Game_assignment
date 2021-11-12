@@ -57,7 +57,7 @@ public class Ambulance_control : MonoBehaviour
             isFire = true;
            
         }
-        if (currentHealth <= 20)
+        if (currentHealth <= 10)
         {
             Destroy(e);
         }
