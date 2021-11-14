@@ -12,11 +12,14 @@ public class EnemyCar_1 : MonoBehaviour
     private float minTime = 2f;
 
     private float time;
+    private float destroyTime;
 
     private float spawnTime;
 
     private float speed = 2f;
     private float timer;
+
+    public bool isMoving = true; 
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +34,22 @@ public class EnemyCar_1 : MonoBehaviour
     void Update()
     {
         timer += 1.0f * Time.deltaTime;
-        if(timer >= 3f)
+        if(timer >= 3f && isMoving)
         {
             enemyCar.velocity = new Vector2(0, 0);
+            isMoving = false;
         }
+
+        if(enemyCar.velocity.y > 0)
+        {
+            destroyTime += 1.0f * Time.deltaTime;
+        }
+        if(destroyTime >= 4)
+        {
+            DestroyCar();
+        }
+
+        
     }
 
     private void FixedUpdate()
@@ -46,16 +61,38 @@ public class EnemyCar_1 : MonoBehaviour
             SpawnObject();
             SetRandomTime();
         }
+        
     }
 
     void SpawnObject()
     {
-        time = minTime;
-        Instantiate(bomb, firePoint.position, bomb.transform.rotation);
+        if(enemyCar.velocity.y == 0)
+        {
+            time = minTime;
+            Instantiate(bomb, firePoint.position, bomb.transform.rotation);
+        }
+        
     }
 
     void SetRandomTime()
     {
         spawnTime = Random.Range(minTime, maxTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Finish")
+        {
+            
+                enemyCar = this.GetComponent<Rigidbody2D>();
+                enemyCar.velocity = new Vector2(0, 2f);
+            
+            
+            
+        }
+    }
+    private void DestroyCar()
+    {
+        Destroy(gameObject);
     }
 }

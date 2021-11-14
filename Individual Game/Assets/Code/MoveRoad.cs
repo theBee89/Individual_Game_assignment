@@ -6,6 +6,8 @@ public class MoveRoad : MonoBehaviour
 {
     public float speed;
 
+    
+
     Vector2 offset;
 
     // Start is called before the first frame update.
@@ -17,9 +19,12 @@ public class MoveRoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        offset = new Vector2(0, Time.time * speed);
-        GetComponent<Renderer>().material.mainTextureOffset = offset;
+        
+        
+            offset = new Vector2(0, Time.time * speed);
+            GetComponent<Renderer>().material.mainTextureOffset = offset;
+        
+        
 
     }
 }

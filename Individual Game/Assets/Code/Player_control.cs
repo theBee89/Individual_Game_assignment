@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_control : MonoBehaviour
 {
+    private int nextSceneToLoad;
+
     public int maxHealth = 100;
     public int currentHealth;
     public int isFire = 0;
@@ -24,7 +27,7 @@ public class Player_control : MonoBehaviour
 
     Ambulance_control ambulance_Control;
 
-    public float carSpeed = 6f;
+    public float carSpeed = 8f;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
     public Vector2 playerPos;
@@ -40,6 +43,8 @@ public class Player_control : MonoBehaviour
     {
         //ambulance_Control = GameObject.FindGameObjectWithTag("Ambulance").GetComponent<Ambulance_control>();
         //fire.SetActive(false);
+        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+
         position = transform.position;
         audio = GetComponent<AudioSource>();
         audio.loop = true;
@@ -173,6 +178,11 @@ public class Player_control : MonoBehaviour
 
         //gameObject.transform.Translate(0f, 0f, 0f);
         //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       
     }
 }
 
