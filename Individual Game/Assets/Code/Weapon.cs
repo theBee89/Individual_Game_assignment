@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
         }
         if(canShoot == true)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKey(KeyCode.Space))
             {
                 shoot();
             }

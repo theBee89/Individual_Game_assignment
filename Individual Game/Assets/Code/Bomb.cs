@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public float bombSpeed = 4f;
+    private float bombSpeed = 3f;
     public Rigidbody2D bomb;
     private float moveVelocity;
 

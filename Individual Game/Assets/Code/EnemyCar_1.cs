@@ -49,6 +49,11 @@ public class EnemyCar_1 : MonoBehaviour
             DestroyCar();
         }
 
+        if(timer >= 15)
+        {
+            maxTime = 8;
+        }
+
         
     }
 

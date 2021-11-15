@@ -27,7 +27,7 @@ public class Player_control : MonoBehaviour
 
     Ambulance_control ambulance_Control;
 
-    public float carSpeed = 8f;
+    private float carSpeed = 8f;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
     public Vector2 playerPos;
@@ -93,7 +93,7 @@ public class Player_control : MonoBehaviour
         transform.position = position;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             TakeDamage(20);
             
