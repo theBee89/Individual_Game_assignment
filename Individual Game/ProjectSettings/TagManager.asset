@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Road1
   - Bomb
+  - Heart
   layers:
   - Default
   - TransparentFX

@@ -151,33 +151,13 @@ public class Player_control : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        //if (collision.gameObject.tag == "Ambulance" && position.y > collision.gameObject.transform.position.y)
-        // {
-        //  isCollidingSide = false;
-        //position.y += 1f;
+        if(collision.gameObject.name == "Heart(Clone)")
+        {
+            gainHealth(20);
+            Destroy(collision.gameObject);
+        }
 
-        //transform.position = position;
-        //}
-
-        //if (collision.gameObject.tag == "Ambulance" && position.x > collision.gameObject.transform.position.x && position.y == collision.gameObject.transform.position.y)
-        //{
-        //  position.x += 0.5f;
-        //transform.position = position;
-        //}
-        //if (collision.gameObject.tag == "Ambulance" && position.x < collision.gameObject.transform.position.x && position.y == collision.gameObject.transform.position.y)
-        //{
-        //  position.x -= 0.5f;
-        // transform.position = position;
-        //}
-
-        //if(collision.gameObject.tag == "Road1")
-        //{
-        //  Debug.Log("Wall Hit");
-        //position.y += Input.GetAxis("Vertical") * 0f * Time.deltaTime;
-        //carSpeed = 0;
-
-        //gameObject.transform.Translate(0f, 0f, 0f);
-        //}
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
