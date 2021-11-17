@@ -10,6 +10,9 @@ TagManager:
   - Road1
   - Bomb
   - Heart
+  - Metaball_liquid
+  - Water
+  - Fire
   layers:
   - Default
   - TransparentFX

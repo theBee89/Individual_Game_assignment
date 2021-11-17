@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
         canShoot = false;
         timer = 0f;
         Instantiate(bulletPrefab, weapon.position, Quaternion.Euler(0,0,90));
+        
        
 
     }

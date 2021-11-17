@@ -76,4 +76,6 @@ public class Ambulance_control : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+   
 }
