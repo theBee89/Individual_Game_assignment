@@ -11,6 +11,12 @@ public class Player_control : MonoBehaviour
     public int currentHealth;
     public int isFire = 0;
     public bool callFire = false;
+    private float time;
+
+    private float endLevel = 0;
+
+    public static int score = 0;
+    public GUIStyle myStyle;
 
     public int lives = 3;
 
@@ -41,6 +47,7 @@ public class Player_control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = 0;
         //ambulance_Control = GameObject.FindGameObjectWithTag("Ambulance").GetComponent<Ambulance_control>();
         //fire.SetActive(false);
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
@@ -56,6 +63,7 @@ public class Player_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         if(currentHealth >= 100)
         {
             currentHealth = 100;
@@ -162,6 +170,33 @@ public class Player_control : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "Finish")
+        {
+            score += (2000 * lives);
+            StartCoroutine(loadNextScene());
+        }
+    }
+
+    private void toNextScene()
+    {
+        SceneManager.LoadScene(nextSceneToLoad);
+    }
+
+    IEnumerator loadNextScene()
+    {
+
+        yield return new WaitForSeconds(3.0f);
+        toNextScene();
+
+
+    }
+
+
+
+    private void OnGUI()
+    {
+        GUI.Box(new Rect(10, 10, 100, 30), "Time: " + time, myStyle);
+        GUI.Box(new Rect(10, 50, 100, 30), "Score: " + score, myStyle);
        
     }
 }

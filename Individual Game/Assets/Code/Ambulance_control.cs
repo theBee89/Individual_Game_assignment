@@ -40,6 +40,7 @@ public class Ambulance_control : MonoBehaviour
             Destroy(gameObject);
             
             player_Control.lives -= 1;
+            Player_control.score -= 400;
         }
         
         

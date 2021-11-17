@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 10f;
     public Rigidbody2D bullet;
 
+    Player_control player_Control;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class Bullet : MonoBehaviour
 
         if(collision.gameObject.tag == "Bomb")
         {
+            Player_control.score += 100;
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
@@ -45,6 +48,9 @@ public class Bullet : MonoBehaviour
             Debug.Log("Collision Detected");
             GameObject e = Instantiate(explosion);
             e.transform.position = collision.transform.position;
+            //player_Control = GetComponent<Player_control>();
+            
+            
             //Destroy(collision.gameObject);
             Destroy(gameObject);
         }
