@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawn_fireCar : MonoBehaviour
 {
 
-    private float maxTime = 12f;
+    private float maxTime = 8f;
     private float minTime = 2f;
 
     private float spawnTime;

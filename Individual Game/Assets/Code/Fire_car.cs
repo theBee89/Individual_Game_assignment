@@ -10,7 +10,7 @@ public class Fire_car : MonoBehaviour
     public Transform car;
     public GameObject car2;
 
-    private float speed = 3f;
+    private float speed = 6f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,10 @@ public class Fire_car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -12)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
