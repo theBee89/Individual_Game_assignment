@@ -23,4 +23,18 @@ public class Finish_line_1 : MonoBehaviour
             finish.velocity = new Vector2(0, -speed);
         }
     }
+
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "FireTruck")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
 }

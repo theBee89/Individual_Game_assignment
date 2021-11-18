@@ -43,7 +43,6 @@ public class Spawn_fireCar : MonoBehaviour
         
         time = minTime;
         Instantiate(fireCar, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
-        //Instantiate(fireCar, firePoint.position, fireCar.transform.rotation);
         
 
     }
@@ -51,5 +50,13 @@ public class Spawn_fireCar : MonoBehaviour
     void SetRandomTime()
     {
         spawnTime = Random.Range(minTime, maxTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Finish")
+        {
+            Destroy(gameObject);
+        }
     }
 }

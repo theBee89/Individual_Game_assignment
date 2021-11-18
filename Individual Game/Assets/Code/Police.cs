@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Fire_truck : MonoBehaviour
+public class Police : MonoBehaviour
 {
-
+    private int nextSceneToLoad;
     private float carSpeed = 8f;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
@@ -19,7 +19,7 @@ public class Fire_truck : MonoBehaviour
 
     public GameObject e;
     public GameObject explosion;
-    public Transform fireTruck; 
+    public Transform fireTruck;
 
     public GameObject fireLight;
 
@@ -32,10 +32,15 @@ public class Fire_truck : MonoBehaviour
 
     Vector3 position;
 
+
     // Start is called before the first frame update
     void Start()
     {
         
+
+
+        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+
         time = 0;
         position = transform.position;
 
@@ -81,12 +86,6 @@ public class Fire_truck : MonoBehaviour
 
             HealthBar.SetHealth(currentHealth);
         }
-
-        if(missFire == 1)
-        {
-            TakeDamage(10);
-            missFire = 0;
-        }
     }
 
     public void TakeDamage(int damage)
@@ -118,14 +117,38 @@ public class Fire_truck : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Fire_car(Clone)")
+        if (collision.gameObject.name == "Fire_car(Clone)")
         {
             Destroy(collision.gameObject);
             TakeDamage(10);
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            
+            StartCoroutine(loadNextScene());
+        }
+    }
+
+    private void toNextScene()
+    {
+        SceneManager.LoadScene(nextSceneToLoad);
+       
+    }
+
+    IEnumerator loadNextScene()
+    {
+
+        yield return new WaitForSeconds(3.0f);
+        toNextScene();
+
+
+    }
+
+
 
     private void OnGUI()
     {

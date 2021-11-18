@@ -76,15 +76,12 @@ public class MetaballParticleClass : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Ambulance")
+		if (collision.gameObject.tag == "FireCar")
 		{
 			Destroy(gameObject);
 		}
 
-		//if (collision.gameObject.tag == "Water")
-		//{
-			//IgnoreCollision(collision.gameObject);
-		//}
+		
 		Physics2D.IgnoreLayerCollision(1,4);
 	}
 
@@ -99,7 +96,7 @@ public class MetaballParticleClass : MonoBehaviour {
 		{
 			Player_control.score += 100;
 			Destroy(collision.gameObject);
-			Destroy(gameObject);
+			//Destroy(gameObject);
 		}
 
 		

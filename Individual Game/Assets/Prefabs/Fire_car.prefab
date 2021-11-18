@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 8251127107238950833}
   fireCar: {fileID: 8251127107238950835}
-  fireTruck: {fileID: 0}
 --- !u!1 &8251127107238950835
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,11 +173,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1789380983, guid: c5db7c943d7b00b418553dcb9adb515e, type: 3}
       propertyPath: m_Radius
-      value: 0.13016298
+      value: 0.13689066
       objectReference: {fileID: 0}
     - target: {fileID: 1789380983, guid: c5db7c943d7b00b418553dcb9adb515e, type: 3}
       propertyPath: m_Offset.y
-      value: 0.06966035
+      value: 0.076852344
       objectReference: {fileID: 0}
     - target: {fileID: 1789380983, guid: c5db7c943d7b00b418553dcb9adb515e, type: 3}
       propertyPath: m_IsTrigger

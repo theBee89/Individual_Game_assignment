@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &99981786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 847550572896870798, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
+  m_PrefabInstance: {fileID: 847550572927607758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &195070679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,6 +342,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,6 +358,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8eb77494c6657d4ca7d687442502642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_control: {fileID: 99981786}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1114,11 +1133,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c9f276699935fb45bdd8938c38f9e2d, type: 3}
---- !u!4 &2037466718 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1169075692, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-  m_PrefabInstance: {fileID: 847550572927607758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &462383879924880880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,30 +1248,6 @@ PrefabInstance:
     - target: {fileID: 847550572896870796, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: e
-      value: 
-      objectReference: {fileID: 8626870594074001281, guid: 1f41eec4750476648ac7cf9e7ebd9785, type: 3}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: damaged
-      value: 
-      objectReference: {fileID: 2037466718}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: callFire
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 7881874400628981804, guid: 98ceccec831d1094bbded163b87c80a6, type: 3}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: myStyle.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    - target: {fileID: 847550572896870797, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
-      propertyPath: myStyle.m_FontSize
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 847550572896870798, guid: f44a485f059a2dc42b4fc4d07ddc3c81, type: 3}
       propertyPath: m_Name

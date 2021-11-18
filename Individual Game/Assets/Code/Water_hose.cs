@@ -18,8 +18,7 @@ public class Water_hose : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playSound = Input.GetKey(KeyCode.Space);
-        //stopSound = !Input.GetKey(KeyCode.Space);
+        
     }
 
     // Update is called once per frame

@@ -8,12 +8,12 @@ public class Player_control : MonoBehaviour
     private int nextSceneToLoad;
 
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
     public int isFire = 0;
     public bool callFire = false;
     private float time;
 
-    private float endLevel = 0;
+    
 
     public static int score = 0;
     public GUIStyle myStyle;
@@ -27,6 +27,7 @@ public class Player_control : MonoBehaviour
     public GameObject explosion;
 
     public Transform damaged;
+    public Transform player;
     public Rigidbody2D fireRb;
 
     public GameObject ambulance;
@@ -88,6 +89,7 @@ public class Player_control : MonoBehaviour
         }
         if(currentHealth <= 0)
         {
+            Instantiate(explosion, player.position, player.rotation);
             Destroy(gameObject);
         }
          
@@ -179,8 +181,8 @@ public class Player_control : MonoBehaviour
 
     private void toNextScene()
     {
-        //SceneManager.LoadScene(nextSceneToLoad);
-        SceneManager.LoadScene("Level_2");
+        SceneManager.LoadScene(nextSceneToLoad);
+        //SceneManager.LoadScene("Level_2");
     }
 
     IEnumerator loadNextScene()
