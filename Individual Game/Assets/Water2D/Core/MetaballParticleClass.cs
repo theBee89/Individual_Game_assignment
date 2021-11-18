@@ -95,9 +95,17 @@ public class MetaballParticleClass : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		if (collision.gameObject.tag == "Fire")
+		if (collision.gameObject.tag == "Fire" && rb.velocity.y > 0)
 		{
 			Destroy(collision.gameObject);
+			Destroy(gameObject);
+		}
+
+		
+
+		if (collision.gameObject.tag == "FireCar")
+		{
+			
 			Destroy(gameObject);
 		}
 	}

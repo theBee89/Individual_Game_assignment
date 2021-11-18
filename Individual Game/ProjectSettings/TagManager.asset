@@ -13,6 +13,8 @@ TagManager:
   - Metaball_liquid
   - Water
   - Fire
+  - Fire_2
+  - FireCar
   layers:
   - Default
   - TransparentFX
