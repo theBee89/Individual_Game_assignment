@@ -179,7 +179,8 @@ public class Player_control : MonoBehaviour
 
     private void toNextScene()
     {
-        SceneManager.LoadScene(nextSceneToLoad);
+        //SceneManager.LoadScene(nextSceneToLoad);
+        SceneManager.LoadScene("Level_2");
     }
 
     IEnumerator loadNextScene()

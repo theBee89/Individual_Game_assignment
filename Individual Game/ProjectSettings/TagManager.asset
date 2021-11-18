@@ -15,6 +15,7 @@ TagManager:
   - Fire
   - Fire_2
   - FireCar
+  - missFire
   layers:
   - Default
   - TransparentFX

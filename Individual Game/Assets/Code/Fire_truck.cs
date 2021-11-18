@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fire_truck : MonoBehaviour
 {
@@ -8,17 +9,24 @@ public class Fire_truck : MonoBehaviour
     private float carSpeed = 8f;
     private float maxPosX = 5.5f;
     private float maxPosY = 8.6f;
+    private float time;
+
+    public static int missFire;
+
+    public GUIStyle myStyle;
 
     public int isFire = 0;
 
     public GameObject e;
+    public GameObject explosion;
+    public Transform fireTruck; 
 
     public GameObject fireLight;
 
     public Transform damaged;
 
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
 
     public HealthBar HealthBar;
 
@@ -27,6 +35,8 @@ public class Fire_truck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        time = 0;
         position = transform.position;
 
         currentHealth = maxHealth;
@@ -36,6 +46,7 @@ public class Fire_truck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
         position.y += Input.GetAxis("Vertical") * carSpeed * Time.deltaTime;
 
@@ -46,6 +57,7 @@ public class Fire_truck : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Instantiate(explosion, fireTruck.position, fireTruck.rotation);
             Destroy(gameObject);
         }
 
@@ -69,9 +81,15 @@ public class Fire_truck : MonoBehaviour
 
             HealthBar.SetHealth(currentHealth);
         }
+
+        if(missFire == 1)
+        {
+            TakeDamage(10);
+            missFire = 0;
+        }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
@@ -81,7 +99,7 @@ public class Fire_truck : MonoBehaviour
             e.transform.position = damaged.transform.position;
             isFire = 1;
         }
-        if (currentHealth <= 10)
+        if (currentHealth < 10)
         {
             Destroy(e);
         }
@@ -105,5 +123,14 @@ public class Fire_truck : MonoBehaviour
             Destroy(collision.gameObject);
             TakeDamage(20);
         }
+    }
+
+    
+
+    private void OnGUI()
+    {
+        GUI.Box(new Rect(10, 10, 100, 30), "Time: " + time, myStyle);
+        GUI.Box(new Rect(10, 50, 100, 30), "Score: " + Player_control.score, myStyle);
+
     }
 }

@@ -8,6 +8,10 @@ public class Fire : MonoBehaviour
     public Transform car;
     public GameObject fireCar;
 
+   
+
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,4 +23,17 @@ public class Fire : MonoBehaviour
     {
         transform.position = car.transform.position;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "missFire")
+        {
+            Debug.Log("Collision detected");
+            Fire_truck.missFire = 1;
+            
+            
+        }
+    }
+
+   
 }

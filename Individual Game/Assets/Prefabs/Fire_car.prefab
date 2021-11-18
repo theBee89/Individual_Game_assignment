@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8251127107256121783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376377647875705297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6332e02bcb55a9440b383615d703ae12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 8251127107238950833}
+  fireCar: {fileID: 8251127107238950835}
+  fireTruck: {fileID: 0}
 --- !u!1 &8251127107238950835
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,20 +165,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8251127107256121783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376377647875705297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6332e02bcb55a9440b383615d703ae12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 8251127107238950833}
-  fireCar: {fileID: 8251127107238950835}
 --- !u!1001 &8251127106710042192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,7 +232,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2618820305231854653, guid: c5db7c943d7b00b418553dcb9adb515e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5db7c943d7b00b418553dcb9adb515e, type: 3}
 --- !u!1 &376377647875705297 stripped
 GameObject:
