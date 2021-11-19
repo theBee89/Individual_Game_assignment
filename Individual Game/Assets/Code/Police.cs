@@ -125,11 +125,7 @@ public class Police : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Fire_car(Clone)")
-        {
-            Destroy(collision.gameObject);
-            TakeDamage(10);
-        }
+        
 
         if(collision.gameObject.tag == "lvl_3" || collision.gameObject.tag == "lvl3_car")
         {

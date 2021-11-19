@@ -35,6 +35,11 @@ public class lvl3_traffic : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if(collision.gameObject.tag == "lvl_3" || collision.gameObject.tag == "lvl3_car")
+        {
+            Destroy(gameObject);
+        }
+
         if(collision.gameObject.tag == "Bullet")
         {
             Instantiate(explosion, car.position, car.rotation);
