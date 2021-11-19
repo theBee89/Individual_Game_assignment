@@ -38,6 +38,16 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
+        if(collision.gameObject.tag == "lvl_3")
+        {
+            Police.wrongVehicle = 1;
+        }
+
+        if(collision.gameObject.tag == "lvl3_car")
+        {
+            Player_control.score += 100;
+        }
             
     }
 

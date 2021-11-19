@@ -353,9 +353,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire-Truck
       objectReference: {fileID: 0}
+    - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: myStyle.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 01c1a12146cdded4fbba414d97dcb05e, type: 3}
+    - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: myStyle.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: myStyle.m_FontStyle
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1744609923334373375, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1744609923334373375, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
       propertyPath: m_LocalPosition.x

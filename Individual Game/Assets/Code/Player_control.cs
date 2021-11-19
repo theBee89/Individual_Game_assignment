@@ -49,8 +49,7 @@ public class Player_control : MonoBehaviour
     void Start()
     {
         time = 0;
-        //ambulance_Control = GameObject.FindGameObjectWithTag("Ambulance").GetComponent<Ambulance_control>();
-        //fire.SetActive(false);
+     
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
         position = transform.position;
@@ -69,10 +68,7 @@ public class Player_control : MonoBehaviour
         {
             currentHealth = 100;
         }
-        if(lives == 0)
-        {
-            Destroy(gameObject);
-        }
+        
         
 
         
@@ -86,6 +82,8 @@ public class Player_control : MonoBehaviour
         if (lives <= 0)
         {
             Debug.Log("Game Over");
+            StartCoroutine(loadGameOver());
+            //lives = 1;
         }
         if(currentHealth <= 0)
         {
@@ -117,11 +115,28 @@ public class Player_control : MonoBehaviour
 
             HealthBar.SetHealth(currentHealth);
         }
+
+       
     }
 
-   
+    IEnumerator loadGameOver()
+    {
 
-   
+        yield return new WaitForSeconds(3.0f);
+        toGoScene();
+
+
+    }
+
+    private void toGoScene()
+    {
+
+        SceneManager.LoadScene("Game_Over");
+    }
+
+
+
+
 
     void gainHealth(int heal)
     {
@@ -182,7 +197,7 @@ public class Player_control : MonoBehaviour
     private void toNextScene()
     {
         SceneManager.LoadScene(nextSceneToLoad);
-        //SceneManager.LoadScene("Level_2");
+       
     }
 
     IEnumerator loadNextScene()
@@ -199,7 +214,7 @@ public class Player_control : MonoBehaviour
     private void OnGUI()
     {
         GUI.Box(new Rect(10, 10, 100, 30), "Time: " + time, myStyle);
-        GUI.Box(new Rect(10, 50, 100, 30), "Score: " + score, myStyle);
+        GUI.Box(new Rect(10, 70, 100, 30), "Score: " + score, myStyle);
        
     }
 }

@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 1148279376}
   m_Layer: 0
   m_Name: Police
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,7 +616,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07292819, y: -0.052091956}
+  m_Offset: {x: -0.07292819, y: 0.007401824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -627,7 +627,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7888851, y: 1.9557383}
+  m_Size: {x: 0.7888851, y: 2.0747259}
   m_EdgeRadius: 0
 --- !u!82 &1148279376
 AudioSource:
@@ -641,7 +641,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6f21baf182bfe6d4d831b651549e019f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -859,9 +859,9 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 01c1a12146cdded4fbba414d97dcb05e, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 3
     m_Alignment: 0
     m_WordWrap: 0
     m_RichText: 1
@@ -1205,6 +1205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1595992894}
+  - component: {fileID: 1595992895}
   m_Layer: 0
   m_Name: Spawn_traffic
   m_TagString: Untagged
@@ -1226,6 +1227,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595992895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595992893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7577e1e11d70dd408e4064453e8237d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  police: {fileID: 9059794846771297997, guid: c1150cffe7798fb4fb03bb5ac3e3e84e, type: 3}
+  ambulance: {fileID: 250767828066242408, guid: 3ad621a6c811ff442b81e2d27ec13685, type: 3}
+  fireTruck: {fileID: 5711008800067388932, guid: ba1eb9c5c20a50042ba563033394ace4, type: 3}
+  car: {fileID: 1941315458444578492, guid: 883b1a1a10cce374e99957827963690e, type: 3}
 --- !u!1 &2016033158
 GameObject:
   m_ObjectHideFlags: 0

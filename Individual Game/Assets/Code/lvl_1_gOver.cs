@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class lvl_1_gOver : MonoBehaviour
 {
     public GameObject player_control;
+    private bool playerDestroyed = false;
 
 
     void Start()
@@ -16,18 +17,28 @@ public class lvl_1_gOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player_control = GameObject.Find("Player_car1");
-        Player_control player_Control = player_control.GetComponent<Player_control>();
-
+        
+            
+            
+        //player_control = GameObject.Find("Player_car1");
+        //Player_control player_Control = player_control.GetComponent<Player_control>();
+        
+        
+            
+           
         if (Player_control.currentHealth <= 0)
         {
-
-            StartCoroutine(loadGameOver());
+            playerDestroyed = true;
+            
+            
 
         }
-        if(player_Control.lives == 0)
+        
+
+        if(playerDestroyed)
         {
             StartCoroutine(loadGameOver());
+            playerDestroyed = false;
         }
 
 

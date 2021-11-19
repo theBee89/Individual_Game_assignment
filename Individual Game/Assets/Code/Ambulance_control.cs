@@ -35,12 +35,13 @@ public class Ambulance_control : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
+            player_Control.lives -= 1;
+            Player_control.score -= 400;
             GameObject e = Instantiate(explosion);
             e.transform.position = transform.position;
             Destroy(gameObject);
             
-            player_Control.lives -= 1;
-            Player_control.score -= 400;
+            
         }
         
         

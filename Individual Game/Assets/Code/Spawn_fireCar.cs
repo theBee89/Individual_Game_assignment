@@ -45,6 +45,7 @@ public class Spawn_fireCar : MonoBehaviour
         Instantiate(fireCar, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
         
 
+
     }
 
     void SetRandomTime()

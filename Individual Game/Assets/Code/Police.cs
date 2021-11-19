@@ -11,6 +11,8 @@ public class Police : MonoBehaviour
     private float maxPosY = 8.6f;
     private float time;
 
+    public static int wrongVehicle = 0;
+
     public static int missFire;
 
     public GUIStyle myStyle;
@@ -86,6 +88,12 @@ public class Police : MonoBehaviour
 
             HealthBar.SetHealth(currentHealth);
         }
+
+        if (wrongVehicle == 1)
+        {
+            TakeDamage(10);
+            wrongVehicle = 0;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -122,6 +130,11 @@ public class Police : MonoBehaviour
             Destroy(collision.gameObject);
             TakeDamage(10);
         }
+
+        if(collision.gameObject.tag == "lvl_3" || collision.gameObject.tag == "lvl3_car")
+        {
+            TakeDamage(10);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -153,7 +166,7 @@ public class Police : MonoBehaviour
     private void OnGUI()
     {
         GUI.Box(new Rect(10, 10, 100, 30), "Time: " + time, myStyle);
-        GUI.Box(new Rect(10, 50, 100, 30), "Score: " + Player_control.score, myStyle);
+        GUI.Box(new Rect(10, 70, 100, 30), "Score: " + Player_control.score, myStyle);
 
     }
 }

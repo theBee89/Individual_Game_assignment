@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Fire_truck : MonoBehaviour
 {
+    private int nextSceneToLoad;
 
     private float carSpeed = 8f;
     private float maxPosX = 5.5f;
@@ -41,6 +42,8 @@ public class Fire_truck : MonoBehaviour
 
         currentHealth = maxHealth;
         HealthBar.SetMaxHealth(maxHealth);
+
+        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -125,12 +128,36 @@ public class Fire_truck : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            
+            StartCoroutine(loadNextScene());
+        }
+    }
+
+    private void toNextScene()
+    {
+        SceneManager.LoadScene(nextSceneToLoad);
+
+    }
+
+    IEnumerator loadNextScene()
+    {
+
+        yield return new WaitForSeconds(3.0f);
+        toNextScene();
+
+
+    }
+
+
 
     private void OnGUI()
     {
         GUI.Box(new Rect(10, 10, 100, 30), "Time: " + time, myStyle);
-        GUI.Box(new Rect(10, 50, 100, 30), "Score: " + Player_control.score, myStyle);
+        GUI.Box(new Rect(10, 70, 100, 30), "Score: " + Player_control.score, myStyle);
 
     }
 }

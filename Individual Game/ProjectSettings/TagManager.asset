@@ -17,6 +17,8 @@ TagManager:
   - FireCar
   - missFire
   - FireTruck
+  - lvl_3
+  - lvl3_car
   layers:
   - Default
   - TransparentFX
