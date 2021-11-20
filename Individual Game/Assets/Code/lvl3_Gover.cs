@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class lvl_1_gOver : MonoBehaviour
+public class lvl3_Gover : MonoBehaviour
 {
+
     public GameObject player_control;
     private bool playerDestroyed = false;
 
+    
 
     // Update is called once per frame
     void Update()
     {
-        
-            
-               
-        if (Player_control.currentHealth <= 0)
+
+
+
+        if (Police.currentHealth <= 0)
         {
             playerDestroyed = true;
-            
-            
+
+
 
         }
-        
 
-        if(playerDestroyed)
+
+        if (playerDestroyed)
         {
             StartCoroutine(loadGameOver());
             playerDestroyed = false;
@@ -35,7 +37,7 @@ public class lvl_1_gOver : MonoBehaviour
 
     private void toNextScene()
     {
-        
+
         SceneManager.LoadScene("Game_Over");
     }
 

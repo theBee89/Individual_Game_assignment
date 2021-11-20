@@ -45,6 +45,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "lvl_3")
         {
             Police.wrongVehicle = 1;
+            Player_control.score -= 200;
         }
 
         if(collision.gameObject.tag == "lvl3_car")

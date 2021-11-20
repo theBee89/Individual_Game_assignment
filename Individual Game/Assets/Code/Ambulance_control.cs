@@ -66,17 +66,20 @@ public class Ambulance_control : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.gameObject.tag == "Bomb")
+        if (collision.gameObject.tag == "Bomb")
         {
             TakeDamage(20);
-            
+
             GameObject e = Instantiate(explosion2);
             e.transform.position = transform.position;
             Destroy(collision.gameObject);
         }
     }
 
-   
+
+
 }
