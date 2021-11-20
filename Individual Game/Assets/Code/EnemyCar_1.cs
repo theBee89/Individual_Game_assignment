@@ -34,10 +34,21 @@ public class EnemyCar_1 : MonoBehaviour
     void Update()
     {
         timer += 1.0f * Time.deltaTime;
-        if(timer >= 3f && isMoving)
+        if(timer >= 3f && timer <= 5f && isMoving)
         {
             enemyCar.velocity = new Vector2(0, 0);
             isMoving = false;
+        }
+
+        if(timer >= 60f && !isMoving)
+        {
+            enemyCar.velocity = new Vector2(0, -speed);
+
+        }
+        if(timer >= 62f && !isMoving)
+        {
+            enemyCar.velocity = new Vector2(0, 0);
+            isMoving = true;
         }
 
         if(enemyCar.velocity.y > 0)
@@ -49,7 +60,7 @@ public class EnemyCar_1 : MonoBehaviour
             DestroyCar();
         }
 
-        if(timer >= 15)
+        if(timer >= 40)
         {
             maxTime = 8;
         }

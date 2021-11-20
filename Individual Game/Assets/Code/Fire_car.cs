@@ -35,6 +35,11 @@ public class Fire_car : MonoBehaviour
         {
             Instantiate(explosion, car.position, car.rotation);
         }
+
+        if(collision.gameObject.tag == "FireCar")
+        {
+            Destroy(gameObject);
+        }
     }
 
     

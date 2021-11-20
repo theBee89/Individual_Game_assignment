@@ -11,6 +11,8 @@ public class Spawn_fireCar : MonoBehaviour
     private float spawnTime;
     private float time;
 
+    private float timer;
+
     public GameObject fireCar;
 
     // Start is called before the first frame update
@@ -23,7 +25,12 @@ public class Spawn_fireCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += 1.0f * Time.deltaTime;
+
+        if(timer >= 60f)
+        {
+            maxTime = 5;
+        }
     }
 
     private void FixedUpdate()

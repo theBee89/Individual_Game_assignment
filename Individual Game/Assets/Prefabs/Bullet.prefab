@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 7881874400628981804, guid: 98ceccec831d1094bbded163b87c80a6, type: 3}
-  explosion2: {fileID: 0}
+  explosion2: {fileID: 9118572820364899882, guid: 40318e5a0a9547c4aaace89d15cff63d, type: 3}
   bulletSpeed: 10
   bullet: {fileID: -5492432777444403644}
 --- !u!82 &507300793170936702

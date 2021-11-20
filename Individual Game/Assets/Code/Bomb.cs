@@ -6,7 +6,7 @@ public class Bomb : MonoBehaviour
 {
     private float bombSpeed = 3f;
     public Rigidbody2D bomb;
-    private float moveVelocity;
+    //private float moveVelocity;
 
     // Start is called before the first frame update
     void Start()

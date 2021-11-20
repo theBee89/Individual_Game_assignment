@@ -35,6 +35,9 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Bomb")
         {
             Player_control.score += 100;
+            Instantiate(explosion2, bullet.transform.position, bullet.transform.rotation);
+            
+            
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
