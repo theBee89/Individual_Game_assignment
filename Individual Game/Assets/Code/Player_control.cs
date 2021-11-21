@@ -8,14 +8,16 @@ public class Player_control : MonoBehaviour
     private int nextSceneToLoad;
 
     public int maxHealth = 100;
-    public static int currentHealth;
+    public int currentHealth;
     public int isFire = 0;
     public bool callFire = false;
     private float time;
 
+    public static bool destroyed;
+
     
 
-    public static int score = 0;
+    public static int score;
     public GUIStyle myStyle;
 
     public int lives = 3;
@@ -23,8 +25,10 @@ public class Player_control : MonoBehaviour
     public HealthBar HealthBar;
     public Rigidbody2D car;
     public GameObject fireLight;
-    public GameObject e;
+    //public GameObject e;
     public GameObject explosion;
+
+    public GameObject fireTest;
 
     public Transform damaged;
     public Transform player;
@@ -48,6 +52,8 @@ public class Player_control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        destroyed = false;
+        score = 0;
         time = 0;
      
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
@@ -68,14 +74,24 @@ public class Player_control : MonoBehaviour
         {
             currentHealth = 100;
         }
+
+        if(currentHealth <= 50)
+        {
+            fireTest.SetActive(true);
+
+        }
+        else
+        {
+            fireTest.SetActive(false);
+        }
         
         
 
         
-        if(e != null)
-        {
-            e.transform.position = damaged.transform.position;
-        }  
+        //if(e != null)
+        //{
+          //  e.transform.position = damaged.transform.position;
+        //}  
         
         
 
@@ -87,6 +103,7 @@ public class Player_control : MonoBehaviour
         }
         if(currentHealth <= 0)
         {
+            destroyed = true;
             Instantiate(explosion, player.position, player.rotation);
             Destroy(gameObject);
         }
@@ -142,48 +159,33 @@ public class Player_control : MonoBehaviour
     {
         currentHealth += heal;
         HealthBar.SetHealth(currentHealth);
-        if(currentHealth >= 50)
-        {
-            Destroy(e);
-            isFire = 0;
-        } 
+        //if(currentHealth >= 50)
+        //{
+            
+          //  Destroy(e);
+            //isFire = 0;
+        //} 
     }
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
-        if(currentHealth <= 50 && isFire == 0)
-        {
-            e = Instantiate(fireLight, damaged.position, damaged.rotation);
-            e.transform.position = damaged.transform.position;
-            isFire = 1;
-        }
-        if (currentHealth <= 10)
-        {
-            Destroy(e);
-        }
+        //if(currentHealth <= 50 && isFire == 0)
+        //{
+            
+            //e = Instantiate(fireLight, damaged.position, damaged.rotation);
+            //e.transform.position = damaged.transform.position;
+          //  isFire = 1;
+        //}
+        //if (currentHealth <= 10)
+        //{
+          //  Destroy(e);
+        //}
     }
 
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bomb")
-        {
-            TakeDamage(20);
+   
 
-            GameObject e = Instantiate(explosion);
-            e.transform.position = transform.position;
-            Destroy(collision.gameObject);
-        }
-
-        if(collision.gameObject.name == "Heart(Clone)")
-        {
-            gainHealth(20);
-            Destroy(collision.gameObject);
-        }
-
-        
-    }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -191,6 +193,22 @@ public class Player_control : MonoBehaviour
         {
             score += (2000 * lives);
             StartCoroutine(loadNextScene());
+        }
+
+        if (collision.gameObject.tag == "Bomb")
+        {
+            TakeDamage(20);
+
+            Destroy(collision.gameObject);
+            //GameObject e = Instantiate(explosion);
+            //e.transform.position = transform.position;
+
+        }
+
+        if (collision.gameObject.name == "Heart(Clone)")
+        {
+            gainHealth(20);
+            Destroy(collision.gameObject);
         }
     }
 

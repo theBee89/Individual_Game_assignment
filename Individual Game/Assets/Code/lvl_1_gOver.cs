@@ -13,21 +13,19 @@ public class lvl_1_gOver : MonoBehaviour
     void Update()
     {
         
-            
-               
-        if (Player_control.currentHealth <= 0)
+        if(Player_control.destroyed == true)
         {
-            playerDestroyed = true;
-            
-            
-
+            StartCoroutine(loadGameOver());
+            Player_control.destroyed = false;
+            //playerDestroyed = false;
         }
+               
+        
         
 
         if(playerDestroyed)
         {
-            StartCoroutine(loadGameOver());
-            playerDestroyed = false;
+            
         }
 
 

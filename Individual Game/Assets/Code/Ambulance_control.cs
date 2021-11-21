@@ -6,17 +6,19 @@ public class Ambulance_control : MonoBehaviour
 {
 
     public GameObject explosion;
-    public GameObject e;
+    //public GameObject e;
 
     Player_control player_Control;
-    public GameObject explosion2;
+    //public GameObject explosion2;
 
-    public GameObject fire;
+    public GameObject fireTest;
+
+    //public GameObject fire;
     
-    public Transform ambulance;
+    //public Transform ambulance;
 
     public int lives = 3;
-    public bool isFire = false;
+    //public bool isFire = false;
 
     private int maxHealth = 100;
     public int currentHealth;
@@ -31,7 +33,7 @@ public class Ambulance_control : MonoBehaviour
         player_Control = GameObject.Find("Player_car1").GetComponent<Player_control>();
     }
 
-    private void Update()
+    void Update()
     {
         if(currentHealth <= 0)
         {
@@ -43,8 +45,18 @@ public class Ambulance_control : MonoBehaviour
             
             
         }
-        
-        
+
+        if (this.currentHealth <= 50 && this.currentHealth >0)
+        {
+            this.fireTest.SetActive(true);
+
+        }
+        else
+        {
+            this.fireTest.SetActive(false);
+        }
+
+
     }
 
 
@@ -52,17 +64,17 @@ public class Ambulance_control : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 50 && isFire == false)
-        {
-          e = Instantiate(fire, ambulance.position, ambulance.rotation);
-          e.transform.position = ambulance.transform.position;
-            isFire = true;
+        //if (currentHealth <= 50 && isFire == false)
+        //{
+          //e = Instantiate(fire, ambulance.position, ambulance.rotation);
+          //e.transform.position = ambulance.transform.position;
+            //isFire = true;
            
-        }
-        if (currentHealth <= 10)
-        {
-            Destroy(e);
-        }
+        //}
+        //if (currentHealth <= 10)
+        //{
+          //  Destroy(e);
+        //}
 
     }
 
@@ -74,9 +86,9 @@ public class Ambulance_control : MonoBehaviour
         {
             TakeDamage(20);
 
-            GameObject e = Instantiate(explosion2);
-            e.transform.position = transform.position;
-            Destroy(collision.gameObject);
+            //GameObject e = Instantiate(explosion2);
+            //e.transform.position = transform.position;
+            //Destroy(collision.gameObject);
         }
     }
 
