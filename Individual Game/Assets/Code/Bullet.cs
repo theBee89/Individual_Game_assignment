@@ -62,12 +62,20 @@ public class Bullet : MonoBehaviour
             Debug.Log("Collision Detected");
             GameObject e = Instantiate(explosion);
             e.transform.position = collision.transform.position;
-            //player_Control = GetComponent<Player_control>();
-            
-            
-            //Destroy(collision.gameObject);
+           
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Bomb2")
+        {
+            Player_control.score += 100;
+            Instantiate(explosion2, bullet.transform.position, bullet.transform.rotation);
+
+
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
     }
 
 }

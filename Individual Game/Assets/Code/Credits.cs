@@ -23,10 +23,27 @@ public class Credits : MonoBehaviour
     {
         timer += 1.0f * Time.deltaTime;
 
-        if(timer >= 5f)
+
+        if(sceneName == "Game_Over")
         {
-            SceneManager.LoadScene("main_menu");
+            if (timer >= 5f)
+            {
+
+                SceneManager.LoadScene("Credits");
+            }
         }
+
+        if(sceneName == "Credits")
+        {
+            if(timer >= 6f)
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    SceneManager.LoadScene("main_menu");
+                }
+            }
+        }
+        
     }
 
     private void OnGUI()
@@ -34,6 +51,14 @@ public class Credits : MonoBehaviour
         if(sceneName == "Game_Over")
         {
             GUI.Box(new Rect(Screen.width / 2.3f, Screen.height / 2.3f, 100, 30), "Final Score: " + Player_control.score, myStyle);
+        }
+
+        if(sceneName == "Credits")
+        {
+            if(timer >= 6f)
+            {
+                GUI.Box(new Rect(Screen.width / 2.6f, Screen.height / 1.2f, 100, 30), "Press Space to Continue",myStyle);
+            }
         }
         
     }

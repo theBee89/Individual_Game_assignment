@@ -22,7 +22,7 @@ public class Load_gameOver : MonoBehaviour
 
     private void toNextScene()
     {
-        //SceneManager.LoadScene(nextSceneToLoad);
+        
         SceneManager.LoadScene("Game_Over");
     }
 

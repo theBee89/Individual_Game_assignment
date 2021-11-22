@@ -19,6 +19,7 @@ TagManager:
   - FireTruck
   - lvl_3
   - lvl3_car
+  - Bomb2
   layers:
   - Default
   - TransparentFX

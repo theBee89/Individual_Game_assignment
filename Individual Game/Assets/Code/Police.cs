@@ -88,6 +88,10 @@ public class Police : MonoBehaviour
 
             HealthBar.SetHealth(currentHealth);
         }
+        if(currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
 
         if (wrongVehicle == 1)
         {
@@ -131,6 +135,8 @@ public class Police : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -139,6 +145,11 @@ public class Police : MonoBehaviour
         {
             
             StartCoroutine(loadNextScene());
+        }
+
+        if (collision.gameObject.tag == "Bomb")
+        {
+            TakeDamage(5);
         }
     }
 

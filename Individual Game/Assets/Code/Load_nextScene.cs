@@ -25,10 +25,4 @@ public class Load_nextScene : MonoBehaviour
         }
     }
 
-    //private void OnGUI()
-    //{
-        //GUI.Box(new Rect(10, 10, 100, 30), "Time: " + Time.time, myStyle);
-        //GUI.Box(new Rect(Screen.width/2, Screen.height/2, 100, 30), "Score: " + Player_control.score, myStyle);
-
-    //}
 }

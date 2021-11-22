@@ -25,7 +25,7 @@ public class Player_control : MonoBehaviour
     public HealthBar HealthBar;
     public Rigidbody2D car;
     public GameObject fireLight;
-    //public GameObject e;
+    
     public GameObject explosion;
 
     public GameObject fireTest;
@@ -86,15 +86,6 @@ public class Player_control : MonoBehaviour
         }
         
         
-
-        
-        //if(e != null)
-        //{
-          //  e.transform.position = damaged.transform.position;
-        //}  
-        
-        
-
         if (lives <= 0)
         {
             Debug.Log("Game Over");
@@ -159,28 +150,13 @@ public class Player_control : MonoBehaviour
     {
         currentHealth += heal;
         HealthBar.SetHealth(currentHealth);
-        //if(currentHealth >= 50)
-        //{
-            
-          //  Destroy(e);
-            //isFire = 0;
-        //} 
+         
     }
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
-        //if(currentHealth <= 50 && isFire == 0)
-        //{
-            
-            //e = Instantiate(fireLight, damaged.position, damaged.rotation);
-            //e.transform.position = damaged.transform.position;
-          //  isFire = 1;
-        //}
-        //if (currentHealth <= 10)
-        //{
-          //  Destroy(e);
-        //}
+        
     }
 
    
@@ -200,8 +176,7 @@ public class Player_control : MonoBehaviour
             TakeDamage(20);
 
             Destroy(collision.gameObject);
-            //GameObject e = Instantiate(explosion);
-            //e.transform.position = transform.position;
+           
 
         }
 

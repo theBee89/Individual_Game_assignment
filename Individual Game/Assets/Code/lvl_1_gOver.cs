@@ -17,17 +17,9 @@ public class lvl_1_gOver : MonoBehaviour
         {
             StartCoroutine(loadGameOver());
             Player_control.destroyed = false;
-            //playerDestroyed = false;
-        }
-               
-        
-        
-
-        if(playerDestroyed)
-        {
             
         }
-
+               
 
     }
 

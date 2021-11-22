@@ -21,8 +21,6 @@ public class lvl3_Gover : MonoBehaviour
         {
             playerDestroyed = true;
 
-
-
         }
 
 

@@ -23,11 +23,7 @@ public class Spawn_traffic : MonoBehaviour
         time = minTime;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 
     private void FixedUpdate()
     {
