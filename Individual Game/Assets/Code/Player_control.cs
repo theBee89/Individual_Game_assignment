@@ -36,7 +36,7 @@ public class Player_control : MonoBehaviour
 
     public GameObject ambulance;
 
-    Ambulance_control ambulance_Control;
+    
 
     private float carSpeed = 8f;
     private float maxPosX = 5.5f;
@@ -70,7 +70,7 @@ public class Player_control : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if(currentHealth >= 100)
+        if(currentHealth >= 100) 
         {
             currentHealth = 100;
         }
@@ -86,13 +86,13 @@ public class Player_control : MonoBehaviour
         }
         
         
-        if (lives <= 0)
+        if (lives <= 0) // Lives deduct in level 1 whenever an ambulance is destroyed and game over function is called when all 3 are destroyed
         {
             Debug.Log("Game Over");
             StartCoroutine(loadGameOver());
             
         }
-        if(currentHealth <= 0)
+        if(currentHealth <= 0) // Once health is empty creates explosion and destroys the car
         {
             destroyed = true;
             Instantiate(explosion, player.position, player.rotation);
@@ -149,14 +149,14 @@ public class Player_control : MonoBehaviour
     void gainHealth(int heal)
     {
         currentHealth += heal;
-        HealthBar.SetHealth(currentHealth);
+        HealthBar.SetHealth(currentHealth); 
          
     }
     void TakeDamage(int damage) // Handles damage from collisions
     {
         currentHealth -= damage;
-        HealthBar.SetHealth(currentHealth);
-        
+        HealthBar.SetHealth(currentHealth); // Keeps the healthbar set to current health int
+
     }
 
    
@@ -165,7 +165,7 @@ public class Player_control : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Finish")
+        if(collision.gameObject.tag == "Finish") // Triggers the end of the level
         {
             score += (2000 * lives);
             StartCoroutine(loadNextScene());
@@ -193,7 +193,7 @@ public class Player_control : MonoBehaviour
        
     }
 
-    IEnumerator loadNextScene()
+    IEnumerator loadNextScene() // Once this is called it waits 3 seconds before executing the toNextScene() function
     {
 
         yield return new WaitForSeconds(3.0f);

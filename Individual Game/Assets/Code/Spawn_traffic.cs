@@ -29,7 +29,7 @@ public class Spawn_traffic : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= spawnTime)
+        if (time >= spawnTime) // Sets how often the spawnTraffic method is called
         {
             SpawnObject();
             SetRandomTime();
@@ -47,25 +47,25 @@ public class Spawn_traffic : MonoBehaviour
         switch (value) // Depending on the value of the value variable, the switch statement will spawn a different type of vehicle everytime it is called
         {
             case 1:
-                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
             case 2:
-                Instantiate(ambulance, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(ambulance, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
             case 3:
-                Instantiate(police, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(police, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
             case 4:
-                Instantiate(fireTruck, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
+                Instantiate(fireTruck, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
                 break;
             case 5:
-                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
             case 6:
-                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
             case 7:
-                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
+                Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 13.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
                 break;
 
 

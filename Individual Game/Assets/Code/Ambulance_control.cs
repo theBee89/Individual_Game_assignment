@@ -41,7 +41,7 @@ public class Ambulance_control : MonoBehaviour
             
         }
 
-        if (this.currentHealth <= 50 && this.currentHealth >0)
+        if (this.currentHealth <= 50 && this.currentHealth >0) // Sets ambulance "on fire" once its health is below 50
         {
             this.fireTest.SetActive(true);
 

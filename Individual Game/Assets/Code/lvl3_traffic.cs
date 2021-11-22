@@ -15,13 +15,13 @@ public class lvl3_traffic : MonoBehaviour
     void Start()
     {
         traffic = this.GetComponent<Rigidbody2D>();
-        traffic.velocity = new Vector2(0, -speed);
+        traffic.velocity = new Vector2(0, -speed); // Sets the speed and direction the vehicles travel 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -12)
+        if (transform.position.y < -12) // Destroys the cars once they are out of the screen view 
         {
             Destroy(this.gameObject);
         }
@@ -35,7 +35,7 @@ public class lvl3_traffic : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "lvl_3" || collision.gameObject.tag == "lvl3_car")
+        if(collision.gameObject.tag == "lvl_3" || collision.gameObject.tag == "lvl3_car") // Keeps the trffic from spawning on top of eachother
         {
             Destroy(gameObject);
         }

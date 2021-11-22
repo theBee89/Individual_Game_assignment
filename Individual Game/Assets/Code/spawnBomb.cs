@@ -34,7 +34,7 @@ public class spawnBomb : MonoBehaviour
 
     }
 
-    void SpawnObject()
+    void SpawnObject() // Spawns bomb once time is >= spawntime
     {
        
             time = minTime;

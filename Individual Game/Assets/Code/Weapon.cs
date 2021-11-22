@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
         
     }
 
-    void shoot()
+    void shoot() // Shoots bullets whenever space is pressed
     {
         canShoot = false;
         timer = 0f;

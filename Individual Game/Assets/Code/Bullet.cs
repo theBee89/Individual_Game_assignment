@@ -42,13 +42,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "lvl_3")
+        if(collision.gameObject.tag == "lvl_3") // If player shoots an emergency vehicle this sets the lvl 3 player wrongVehicle to 1. When its = 1 it damages the payers health and sets it back to 0
         {
             Police.wrongVehicle = 1;
             Player_control.score -= 200;
         }
 
-        if(collision.gameObject.tag == "lvl3_car")
+        if(collision.gameObject.tag == "lvl3_car") // Increases score when player shoots the correct cars
         {
             Player_control.score += 100;
         }

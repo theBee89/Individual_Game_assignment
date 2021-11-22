@@ -16,8 +16,6 @@ public class Fire_truck : MonoBehaviour
 
     public GUIStyle myStyle;
 
-    public int isFire = 0;
-
    
     public GameObject fireTest;
     public GameObject explosion;
@@ -76,7 +74,7 @@ public class Fire_truck : MonoBehaviour
 
        
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) // Used for testing purposes
         {
             TakeDamage(20);
 
@@ -84,7 +82,7 @@ public class Fire_truck : MonoBehaviour
             HealthBar.SetHealth(currentHealth);
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B)) // Used for testing purposes
         {
             gainHealth(20);
 
@@ -92,7 +90,7 @@ public class Fire_truck : MonoBehaviour
             HealthBar.SetHealth(currentHealth);
         }
 
-        if(missFire == 1)
+        if(missFire == 1) // If the player misses any of the fires it will result in damage to health
         {
             TakeDamage(10);
             missFire = 0;

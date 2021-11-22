@@ -23,7 +23,7 @@ public class Fire_car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -12)
+        if (transform.position.y < -12) // Destroys car once outside screen view
         {
             Destroy(this.gameObject);
         }
@@ -36,7 +36,7 @@ public class Fire_car : MonoBehaviour
             Instantiate(explosion, car.position, car.rotation);
         }
 
-        if(collision.gameObject.tag == "FireCar")
+        if(collision.gameObject.tag == "FireCar") // Keeps the fireCars from spawning on top of eachother
         {
             Destroy(gameObject);
         }

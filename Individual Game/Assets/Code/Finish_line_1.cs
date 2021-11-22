@@ -17,7 +17,7 @@ public class Finish_line_1 : MonoBehaviour
     void Update()
     {
         timer += 1.0f * Time.deltaTime;
-        if (timer >= 120)
+        if (timer >= 120) // Once 2 minutes pass the finish line moves down the road towards the player
         {
             finish = this.GetComponent<Rigidbody2D>();
             finish.velocity = new Vector2(0, -speed);
@@ -28,7 +28,7 @@ public class Finish_line_1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "FireTruck")
+        if (collision.gameObject.tag == "FireTruck") // Plays sound once colliding with player
         {
             GetComponent<AudioSource>().Play();
         }

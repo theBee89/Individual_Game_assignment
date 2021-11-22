@@ -20,27 +20,21 @@ public class Water_hose : MonoBehaviour
     void Update()
     {       
         if (Input.GetKey(KeyCode.Space)) // Plays water hose sound while space is held and stops when player lets go
-            {
+        {
             shoot();
             
-
-        }
+}
         else
         {
             GetComponent<AudioSource>().Play();
         }
         
-        
+    }
 
-        
-   }
-
-    void shoot()
+    void shoot() // Activates the water hose
     {
         
         Instantiate(bulletPrefab, weapon.position, weapon.rotation);
         
-        
-
     }
 }

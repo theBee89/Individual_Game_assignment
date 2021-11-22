@@ -45,7 +45,7 @@ public class EnemyCar_1 : MonoBehaviour
             enemyCar.velocity = new Vector2(0, -speed);
 
         }
-        if(timer >= 62f && !isMoving)
+        if(timer >= 62f && !isMoving) // Stops cars once they move closer to the player
         {
             enemyCar.velocity = new Vector2(0, 0);
             isMoving = true;
@@ -55,12 +55,12 @@ public class EnemyCar_1 : MonoBehaviour
         {
             destroyTime += 1.0f * Time.deltaTime;
         }
-        if(destroyTime >= 4)
+        if(destroyTime >= 4) // Destroys the cars once they move off screen at the end of the level
         {
             DestroyCar();
         }
 
-        if(timer >= 40)
+        if(timer >= 40) // Once the level is 40 seconds in the bombs spawn at a faster rate
         {
             maxTime = 8;
         }
@@ -80,7 +80,7 @@ public class EnemyCar_1 : MonoBehaviour
         
     }
 
-    void SpawnObject()
+    void SpawnObject() // Bombs only spawn once the cars stop moving
     {
         if(enemyCar.velocity.y == 0)
         {
@@ -90,7 +90,7 @@ public class EnemyCar_1 : MonoBehaviour
         
     }
 
-    void SetRandomTime()
+    void SetRandomTime() // Sets random time for the spawnBomb method
     {
         spawnTime = Random.Range(minTime, maxTime);
     }
@@ -103,10 +103,9 @@ public class EnemyCar_1 : MonoBehaviour
                 enemyCar = this.GetComponent<Rigidbody2D>();
                 enemyCar.velocity = new Vector2(0, 2f); // Cars move away once the finish line appears
             
-            
-            
         }
     }
+
     private void DestroyCar()
     {
         Destroy(gameObject);

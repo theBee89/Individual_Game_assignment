@@ -46,7 +46,7 @@ public class Credits : MonoBehaviour
         
     }
 
-    private void OnGUI()
+    private void OnGUI() // Different GUI appears depending on which scene is loaded
     {
         if(sceneName == "Game_Over")
         {

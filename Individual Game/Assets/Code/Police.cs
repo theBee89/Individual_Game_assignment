@@ -22,9 +22,6 @@ public class Police : MonoBehaviour
     public GameObject explosion;
     public Transform fireTruck;
 
-    
-
-    public Transform damaged;
 
     public static bool destroyed;
     public int maxHealth = 100;
@@ -41,7 +38,7 @@ public class Police : MonoBehaviour
 
 
         destroyed = false;
-        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1; // Sets the next scene to nextSceneToLoad variable
 
         time = 0;
         position = transform.position;
@@ -54,10 +51,10 @@ public class Police : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
+        position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime; // Handles movement 
         position.y += Input.GetAxis("Vertical") * carSpeed * Time.deltaTime;
 
-        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX);
+        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX); // Keeps player within play area
         position.y = Mathf.Clamp(position.y, -8f, maxPosY);
 
         transform.position = position;
@@ -66,7 +63,7 @@ public class Police : MonoBehaviour
         {
             Instantiate(explosion, fireTruck.position, fireTruck.rotation);
             Destroy(gameObject);
-            destroyed = true;
+            destroyed = true; // Triggers Game over scene load once healthbar is empty
         }
 
         if (currentHealth <= 50)
@@ -81,7 +78,7 @@ public class Police : MonoBehaviour
 
         
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) // Used for testing purposes
         {
             TakeDamage(20);
 
@@ -89,19 +86,19 @@ public class Police : MonoBehaviour
             HealthBar.SetHealth(currentHealth);
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B)) // Used for testing purposes
         {
             gainHealth(20);
 
 
             HealthBar.SetHealth(currentHealth);
         }
-        if(currentHealth > 100)
+        if(currentHealth > 100) // Makes sure health cant go above 100
         {
             currentHealth = 100;
         }
 
-        if (wrongVehicle == 1)
+        if (wrongVehicle == 1) // If the player shoots an emergency vehicle this will damage the players health
         {
             TakeDamage(10);
             wrongVehicle = 0;
@@ -136,7 +133,7 @@ public class Police : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Finish")
+        if (collision.gameObject.tag == "Finish") // Triggers end of level
         {
             
             StartCoroutine(loadNextScene());
