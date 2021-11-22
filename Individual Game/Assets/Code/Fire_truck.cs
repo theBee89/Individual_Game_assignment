@@ -18,16 +18,15 @@ public class Fire_truck : MonoBehaviour
 
     public int isFire = 0;
 
-    public GameObject e;
+   
+    public GameObject fireTest;
     public GameObject explosion;
     public Transform fireTruck; 
 
-    public GameObject fireLight;
-
-    public Transform damaged;
 
     public int maxHealth = 100;
-    public static int currentHealth;
+    public int currentHealth;
+    public static bool destroyed;
 
     public HealthBar HealthBar;
 
@@ -36,7 +35,7 @@ public class Fire_truck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        destroyed = false;
         time = 0;
         position = transform.position;
 
@@ -53,21 +52,29 @@ public class Fire_truck : MonoBehaviour
         position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
         position.y += Input.GetAxis("Vertical") * carSpeed * Time.deltaTime;
 
-        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX);
+        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX); // Clamps the player to within the bounds of the screen
         position.y = Mathf.Clamp(position.y, -8f, maxPosY);
 
         transform.position = position;
 
         if (currentHealth <= 0)
         {
+            destroyed = true; // Sends the value true to the script attached to the scene which then loads the Game over screen
             Instantiate(explosion, fireTruck.position, fireTruck.rotation);
             Destroy(gameObject);
         }
 
-        if (e != null)
+        if (currentHealth <= 50)
         {
-            e.transform.position = damaged.transform.position;
+            fireTest.SetActive(true); // Sets car on fire when health is below 50
+
         }
+        else
+        {
+            fireTest.SetActive(false); // Fire goes out if health is above 50
+        }
+
+       
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -96,27 +103,14 @@ public class Fire_truck : MonoBehaviour
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
-        if (currentHealth <= 50 && isFire == 0)
-        {
-            e = Instantiate(fireLight, damaged.position, damaged.rotation);
-            e.transform.position = damaged.transform.position;
-            isFire = 1;
-        }
-        if (currentHealth < 10)
-        {
-            Destroy(e);
-        }
+        
     }
 
     void gainHealth(int heal)
     {
         currentHealth += heal;
         HealthBar.SetHealth(currentHealth);
-        if (currentHealth >= 50)
-        {
-            Destroy(e);
-            isFire = 0;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

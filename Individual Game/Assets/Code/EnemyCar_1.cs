@@ -34,13 +34,13 @@ public class EnemyCar_1 : MonoBehaviour
     void Update()
     {
         timer += 1.0f * Time.deltaTime;
-        if(timer >= 3f && timer <= 5f && isMoving)
+        if(timer >= 3f && timer <= 5f && isMoving) // Moves cars onto screen at beginning of level
         {
             enemyCar.velocity = new Vector2(0, 0);
             isMoving = false;
         }
 
-        if(timer >= 60f && !isMoving)
+        if(timer >= 60f && !isMoving) // Brings enemy cars closer to player halfway through the level
         {
             enemyCar.velocity = new Vector2(0, -speed);
 
@@ -72,7 +72,7 @@ public class EnemyCar_1 : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if(time >= spawnTime)
+        if(time >= spawnTime) // Spawns bombs when time is greater than or equal to spawntime, then sets random time for the next call
         {
             SpawnObject();
             SetRandomTime();
@@ -101,7 +101,7 @@ public class EnemyCar_1 : MonoBehaviour
         {
             
                 enemyCar = this.GetComponent<Rigidbody2D>();
-                enemyCar.velocity = new Vector2(0, 2f);
+                enemyCar.velocity = new Vector2(0, 2f); // Cars move away once the finish line appears
             
             
             

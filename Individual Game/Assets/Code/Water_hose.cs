@@ -19,7 +19,7 @@ public class Water_hose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {       
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)) // Plays water hose sound while space is held and stops when player lets go
             {
             shoot();
             

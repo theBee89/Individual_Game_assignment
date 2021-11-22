@@ -50,7 +50,7 @@ public class Spawn_fireCar : MonoBehaviour
         
         time = minTime;
         Instantiate(fireCar, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
-        
+        // Spawns fireCar at random intervals within a certain timeframe
 
 
     }
@@ -62,7 +62,7 @@ public class Spawn_fireCar : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Finish")
+        if(collision.gameObject.tag == "Finish") // Destroys the spawn fireCar object once the finish line is called
         {
             Destroy(gameObject);
         }

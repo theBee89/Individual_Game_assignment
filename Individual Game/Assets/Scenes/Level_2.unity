@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20212302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4242294831202827147, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+  m_PrefabInstance: {fileID: 599022273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &178877273
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +197,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -276,6 +282,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708f46073ce97854b904b0156da154fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541047273
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,17 +372,9 @@ PrefabInstance:
       value: Fire-Truck
       objectReference: {fileID: 0}
     - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
-      propertyPath: myStyle.m_Font
+      propertyPath: fireTest
       value: 
-      objectReference: {fileID: 12800000, guid: 01c1a12146cdded4fbba414d97dcb05e, type: 3}
-    - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
-      propertyPath: myStyle.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744609923334373373, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
-      propertyPath: myStyle.m_FontStyle
-      value: 3
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 20212302}
     - target: {fileID: 1744609923334373375, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -409,6 +419,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 3593270372551743222, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2031
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593270372551743222, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593270372551743222, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593270372551743222, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.004
+      objectReference: {fileID: 0}
     - target: {fileID: 3601519857255284128, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -416,6 +442,10 @@ PrefabInstance:
     - target: {fileID: 3601519857255284128, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943384021417894465, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd92e9553822a34fbeaffb67645c924, type: 3}

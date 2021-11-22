@@ -77,12 +77,12 @@ public class Player_control : MonoBehaviour
 
         if(currentHealth <= 50)
         {
-            fireTest.SetActive(true);
+            fireTest.SetActive(true); // Sets car on fire when health is below 50
 
         }
         else
         {
-            fireTest.SetActive(false);
+            fireTest.SetActive(false); // Fire goes out if health is above 50
         }
         
         
@@ -90,7 +90,7 @@ public class Player_control : MonoBehaviour
         {
             Debug.Log("Game Over");
             StartCoroutine(loadGameOver());
-            //lives = 1;
+            
         }
         if(currentHealth <= 0)
         {
@@ -100,23 +100,23 @@ public class Player_control : MonoBehaviour
         }
          
 
-        position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
+        position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime; // Controls player movement
         position.y += Input.GetAxis("Vertical") * carSpeed * Time.deltaTime;
 
-        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX);
+        position.x = Mathf.Clamp(position.x, -maxPosX, maxPosX); // Keeps player within the bounds of the playing area
         position.y = Mathf.Clamp(position.y, -6.21f, maxPosY);
 
         transform.position = position;
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))  // Used for testing purposes 
         {
             TakeDamage(20);
             
 
             HealthBar.SetHealth(currentHealth);
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B)) // Used for testing purposes
         {
             gainHealth(20);
 
@@ -130,7 +130,7 @@ public class Player_control : MonoBehaviour
     IEnumerator loadGameOver()
     {
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(3.0f); // After 3 seconds calls to game over screne function once players health is 0
         toGoScene();
 
 
@@ -152,7 +152,7 @@ public class Player_control : MonoBehaviour
         HealthBar.SetHealth(currentHealth);
          
     }
-    void TakeDamage(int damage)
+    void TakeDamage(int damage) // Handles damage from collisions
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);

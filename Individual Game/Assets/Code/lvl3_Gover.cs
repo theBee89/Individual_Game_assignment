@@ -16,15 +16,7 @@ public class lvl3_Gover : MonoBehaviour
     {
 
 
-
-        if (Police.currentHealth <= 0)
-        {
-            playerDestroyed = true;
-
-        }
-
-
-        if (playerDestroyed)
+        if (Police.destroyed == true)
         {
             StartCoroutine(loadGameOver());
             playerDestroyed = false;

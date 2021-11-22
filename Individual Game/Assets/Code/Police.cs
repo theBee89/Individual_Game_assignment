@@ -17,18 +17,18 @@ public class Police : MonoBehaviour
 
     public GUIStyle myStyle;
 
-    public int isFire = 0;
-
-    public GameObject e;
+    
+    public GameObject fireTest;
     public GameObject explosion;
     public Transform fireTruck;
 
-    public GameObject fireLight;
+    
 
     public Transform damaged;
 
+    public static bool destroyed;
     public int maxHealth = 100;
-    public static int currentHealth;
+    public int currentHealth;
 
     public HealthBar HealthBar;
 
@@ -38,9 +38,9 @@ public class Police : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
 
+        destroyed = false;
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
         time = 0;
@@ -66,12 +66,20 @@ public class Police : MonoBehaviour
         {
             Instantiate(explosion, fireTruck.position, fireTruck.rotation);
             Destroy(gameObject);
+            destroyed = true;
         }
 
-        if (e != null)
+        if (currentHealth <= 50)
         {
-            e.transform.position = damaged.transform.position;
+            fireTest.SetActive(true); // Sets car on fire when health is below 50
+
         }
+        else
+        {
+            fireTest.SetActive(false); // Fire goes out if health is above 50
+        }
+
+        
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -104,27 +112,14 @@ public class Police : MonoBehaviour
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
-        if (currentHealth <= 50 && isFire == 0)
-        {
-            e = Instantiate(fireLight, damaged.position, damaged.rotation);
-            e.transform.position = damaged.transform.position;
-            isFire = 1;
-        }
-        if (currentHealth < 10)
-        {
-            Destroy(e);
-        }
+        
     }
 
     void gainHealth(int heal)
     {
         currentHealth += heal;
         HealthBar.SetHealth(currentHealth);
-        if (currentHealth >= 50)
-        {
-            Destroy(e);
-            isFire = 0;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -147,7 +142,7 @@ public class Police : MonoBehaviour
             StartCoroutine(loadNextScene());
         }
 
-        if (collision.gameObject.tag == "Bomb")
+        if (collision.gameObject.tag == "Bomb2")
         {
             TakeDamage(5);
         }

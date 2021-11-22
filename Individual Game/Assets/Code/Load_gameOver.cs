@@ -10,10 +10,11 @@ public class Load_gameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Fire_truck.currentHealth <= 0)
+        if (Fire_truck.destroyed == true)
         {
             
             StartCoroutine(loadGameOver());
+            Fire_truck.destroyed = false;
             
         }
 

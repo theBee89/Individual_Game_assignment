@@ -44,7 +44,7 @@ public class Spawn_traffic : MonoBehaviour
         int value = Random.Range(1, 8);
         Debug.Log(value);
 
-        switch (value)
+        switch (value) // Depending on the value of the value variable, the switch statement will spawn a different type of vehicle everytime it is called
         {
             case 1:
                 Instantiate(car, new Vector3(Random.Range(-4.9f, 4.9f), 12.5f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));
@@ -82,7 +82,7 @@ public class Spawn_traffic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Finish")
+        if (collision.gameObject.tag == "Finish") // Destroys traffic spawner once finish line is called
         {
             Destroy(gameObject);
         }
